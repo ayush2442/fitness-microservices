@@ -16,7 +16,7 @@ public class UserService {
 
     public UserResponse register(@Valid RegisterRequest request) {
 
-        if (repository.existsByEmail(request.getEmail())) {
+        if (repository.existsByEmail(request .getEmail())) {
             throw new RuntimeException("Email already exist");
         }
 
@@ -53,5 +53,9 @@ public class UserService {
         userResponse.setUpdatedAt(user.getUpdatedAt());
 
         return userResponse;
+    }
+
+    public Boolean existByUserId(String userId) {
+        return repository.existsById(userId);
     }
 }

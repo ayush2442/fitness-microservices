@@ -22,8 +22,6 @@ public class RabbitMqConfig {
     @Value("${rabbitmq.routing.key}")
     private String routingKey;
 
-
-
     @Bean
     public Queue activityQueue() {
         return new Queue(queue, true);
